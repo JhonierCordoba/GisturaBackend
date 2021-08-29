@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Chela
+from .models import Evento
 
 
-class ChelaSerializer(serializers.ModelSerializer):
+class EventoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Chela
+        model = Evento
         fields = '__all__'

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Chela
-from .serializers import ChelaSerializer
+from .models import Evento
+from .serializers import EventoSerializer
 
 
-class ChelaViewset(viewsets.ModelViewSet):
-    serializer_class = ChelaSerializer
-    queryset = Chela.objects.all()
+class EventoViewset(viewsets.ModelViewSet):
+    serializer_class = EventoSerializer
+    queryset = Evento.objects.all()

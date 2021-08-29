@@ -1,14 +1,17 @@
 from django.db import models
 
-class Chela(models.Model):
-    marca = models.CharField(max_length=50)
-    alcohol = models.DecimalField(max_digits=4, decimal_places=2)
-    mililitros = models.IntegerField()
-    artesanal = models.BooleanField()
-    nacionalidad = models.CharField(max_length=50, blank=True, null=True)
-    creado = models.DateTimeField(auto_now_add=True)
-    editado = models.DateTimeField(auto_now=True)
+class Evento(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    imageUrls = models.BooleanField(default=False)
+    minAge = models.IntegerField()
+    location = models.CharField(max_length=30)
+    price = models.IntegerField()
+    sponsor = models.CharField(max_length=100)
+    schedule = models.BooleanField()
+    category = models.CharField(max_length=100)
+
 
     def __str__(self):
-        return self.marca
+        return self.name
 
