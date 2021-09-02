@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'GisKend',
     "rest_framework",
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,12 @@ DATABASES = {
     }
 }
 
+API_KEY_SECRET = 'Bearer RVJSRSBjb24gRVJSRSBDSUdBUlJPIEVSUkUgY29uIEVSUkUgQkFSUklMCm1pIG1hbWEgbWUgbWltYQptYXJnb3QgZXMgbGEgbWVqb3I='
+
 # Password validation
+
+
+
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
