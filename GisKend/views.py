@@ -4,7 +4,7 @@ from .serializers import EventoSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .permissions import Authentication
-
+from django.http import JsonResponse
 
 @api_view(('GET', 'PUT','DELETE'))
 @permission_classes((Authentication, ))
@@ -36,7 +36,7 @@ def get_evento(request, id, format=None):
             return Response(data=data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(('POST',))
+@api_view(('POST', 'GET',))
 @permission_classes((Authentication, ))
 def crear_evento(request):
     evento = Evento()
@@ -47,3 +47,6 @@ def crear_evento(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == "GET":
+        serializer = Evento.objects.all()
+        return JsonResponse(list(serializer.values()), safe=False)

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 
@@ -77,7 +77,6 @@ WSGI_APPLICATION = 'GisturaBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -85,7 +84,18 @@ DATABASES = {
     }
 }
 
-API_KEY_SECRET = 'Bearer RVJSRSBjb24gRVJSRSBDSUdBUlJPIEVSUkUgY29uIEVSUkUgQkFSUklMCm1pIG1hbWEgbWUgbWltYQptYXJnb3QgZXMgbGEgbWVqb3I='
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
+}"""
+
+API_KEY_SECRET = 'Bearer ' + os.getenv('API_KEY')
 
 # Password validation
 
